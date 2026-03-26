@@ -1,0 +1,411 @@
+﻿SLA Assignment 1 
+
+1. Using for loops write a Java Program to display all odd numbers from 1 to 1000
+
+package sla1;
+
+public class OddNumbersFrom1To1000 {
+	public static void main(String [] args) {
+		for(int i=1;i<=1000;i++) {
+			if(i%2!=0) {
+				System.out.println(i);
+			}
+		}
+	}
+}
+
+
+
+
+2. using for loops write a Java Program to display all even numbers from 1 to 500.
+
+
+public class EvenNumbersFrom1To500 {
+	public static void main(String []args) {
+		for(int i=1;i<=500;i++) {
+			if(i%2==0) {
+				System.out.println(i);
+			}
+		}
+	}
+}
+
+
+
+
+3. using for loops write a Java Program to display every 7th number from 1 to 200
+
+
+public class DisplayEvery7thNumberFrom1To200 {
+	public static void main(String[]args) {
+		for(int i=1;i<=200;i++) {
+			if(i%7==0) {
+				System.out.println(i);
+			}
+		}
+	}
+}
+
+
+
+
+4. Using For loops write a program to display the following pattern
+
+*
+**
+***
+****
+*****
+
+
+public class StarPattern {
+	public static void main(String []args) {
+		for(int i=1;i<=5;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+
+5. Using for loops write a program to display the following pattern
+*****
+****
+***
+**
+*
+
+
+public class InvertedStarPattern {
+	public static void main(String[]args) {
+		for(int i=1;i<=5;i++) {
+			for(int j=5;j>=i;j--) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+6. Using for loops write a program to display the following pattern
+1
+2 3
+4 5 6
+7 8 9 10
+
+
+public class NumberPattern {
+	public static void main(String[]args) {
+		int num = 1;
+		for(int i=1;i<=4;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print(num+" ");
+				num++;
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+
+7. Using for loops write a program to display the following pattern
+1
+1 2 
+1 2 3
+1 2 3 4
+1 2 3 4 5
+1 2 3 4 5 6
+
+public class NumberPattern {
+	public static void main(String[]args) {
+		for(int i=1;i<=6;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print(j+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+8. Using for loops write a program to display the following pattern
+1 2 3 4 5 6
+1 2 3 4 5
+1 2 3 4
+1 2 3
+1 2 
+1
+
+public class NumberPattern {
+	public static void main(String[]args) {
+		for(int i=6;i>=1;i--) {
+			for(int j=1;j<=i;j++) {
+				System.out.print(j+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+1. Write a Java program to get the character at the given index within the String.  
+Sample Output:
+Original String = Java Exercises!                                                                             
+The character at position 0 is J                                                                              
+The character at position 10 is i
+
+import java.util.Scanner;
+
+public class CharAtGivenIndexWithinString {
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		String str = "Java Exercise!";
+		System.out.print("Enter the index : ");
+		int index = sc.nextInt();
+		if(index >= 0 && index <str.length()) {
+			System.out.println("The character at position "+index+" is "+str.charAt(index));
+		}
+		else {
+			System.out.println("Enter valid index...");
+		}
+	}
+}
+
+
+
+
+2. Write a Java program to compare two strings lexicographically. Two strings are lexicographically equal 
+if they are the same length and contain the same number of characters in the same positions.  
+Sample Output:
+String 1: This is Exercise 1                                                                                  
+String 2: This is Exercise 2                                                                                  
+"This is Exercise 1" is less than "This is Exercise 2"
+
+public class LexicographicallyCompare {
+	
+	public static int compareString(String s1,String s2) {
+		int len1 = s1.length();
+		int len2 = s2.length();
+		int minLen = (len1<len2) ? len1 : len2;
+		
+		for(int i=0;i<minLen;i++) {
+			char c1 = s1.charAt(i);
+			char c2 = s2.charAt(i);
+			if(c1 != c2) {
+				return c1 - c2; //65 - 97
+			}
+		}
+		return len1-len2;
+	}
+	
+	public static void main(String args[]) {
+		String str1 = "This is Exercise 1";
+		String str2 = "This is Exercise 2";
+		
+		int result = compareString(str1,str2);
+		
+		if(result ==0) {
+			System.out.println("\"" + str1 + "\" is equal to \"" + str2 + "\"");
+		}
+		else if(result < 0) {
+          		System.out.println("\"" + str1 + "\" is less than \"" + str2 + "\"");
+		}
+		else {
+            		System.out.println("\"" + str1 + "\" is greater than \"" + str2 + "\"");
+		}
+	}
+}
+
+
+
+
+3. Write a Java program to check whether a given string ends with the contents of another string.  
+Sample Output:
+"Python Exercises" ends with "se"? false                                                                      
+"Python Exercise" ends with "se"? true
+
+public class CheckStringEndsWithContentOfAnotherString {
+	public static void main(String []args) {
+		String str1 = "Python Exercises";
+		String str2 = "se";
+		
+		System.out.println("\"" + str1 + "\" ends with \"" + str2 + "\" ? " 
+                + checkEndsWith(str1, str2));
+		
+		String str3 = "Python Exercise";
+		System.out.println("\"" + str3 + "\" ends with \"" + str2 + "\" ? " 
+                + checkEndsWith(str3, str2));
+	}
+	
+	public static boolean checkEndsWith(String mainStr,String subStr) {
+		int len1 = mainStr.length();
+		int len2 = subStr.length();
+		
+		if(len2 > len1) {
+			return false;
+		}
+		
+		for(int i=0;i<len2;i++) {
+			if(mainStr.charAt(len1 - len2 + i) != subStr.charAt(i)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+}
+
+
+
+
+4. Write a Java program to get the index of all the characters of the alphabet.  
+Sample Output:
+a  b c  d e  f  g h i  j                                                                                     
+=========================                                                                                     
+36 10 7 40 2 16 42 1 6 20                                                                                     
+                                                                                                   
+k  l  m  n  o  p q  r  s  t                                                                                   
+===========================                                                                                   
+8 35 22 14 12 23 4 11 24 31                                                                                   
+
+u  v  w  x  y  z                                                                                              
+================                                                                                              
+5 27 13 18 38 37
+Sample string of all alphabet: "The quick brown fox jumps over the lazy dog."
+
+public class IndexOfAllCharactersOfAlphabet {
+	public static void main(String[]args) {
+		String sample = "The quick brown fox jumps over the lazy dog.";
+		sample = sample.toLowerCase();
+		printGroup(sample, new char[]{'a','b','c','d','e','f','g','h','i','j'});
+		System.out.println("=====================================");
+		printIndex(sample, new char[]{'a','b','c','d','e','f','g','h','i','j'});
+		System.out.println();
+		printGroup(sample, new char[]{'k','l','m','n','o','p','q','r','s','t'});
+		System.out.println("=====================================");
+		printIndex(sample, new char[]{'k','l','m','n','o','p','q','r','s','t'});
+		System.out.println();
+		printGroup(sample, new char[]{'u','u','w','x','y','z'});
+		System.out.println("=====================================");
+		printIndex(sample, new char[]{'u','u','w','x','y','z'});
+	}
+	private static void printGroup(String sample,char []chars) {
+		for(char c : chars) {
+			System.out.print(c+"   ");
+		}
+		System.out.println();
+	}
+	
+	private static void printIndex(String sample,char []chars) {
+		for(char c : chars) {
+			int index = sample.indexOf(c);
+			System.out.print(index+"  ");
+		}
+		System.out.println();
+	}
+}
+
+
+5. Write a Java program to replace each substring of a given string that matches the given regular expression with the given replacement.  
+Sample string : "The quick brown fox jumps over the lazy dog."
+In the above string replace all the fox with cat.
+Sample Output:
+Original string: The quick brown fox jumps over the lazy dog.                                                 
+New String: The quick brown cat jumps over the lazy dog.
+
+public class ReplaceSubstringManual {
+    public static void main(String[] args) {
+        String original = "The quick brown fox jumps over the lazy dog.";
+        String target = "fox";
+        String replacement = "cat";
+
+        String result = "";
+        int i = 0;
+
+        while (i < original.length()) {
+            if (i <= original.length() - target.length() &&
+                original.substring(i, i + target.length()).equals(target)) {
+                
+                result = result + replacement;
+                i = i + target.length();
+            } else {
+                result = result + original.charAt(i);
+                i++;
+            }
+        }
+
+        System.out.println("Original string: " + original);
+        System.out.println("New String: " + result);
+    }
+}
+
+
+
+
+6. Write a Java program to convert all the characters in a string to uppercase. 
+ Sample Output:
+Original String: The Quick BroWn FoX!                                                                         
+String in uppercase: THE QUICK BROWN FOX! 
+
+public class ToUpperCaseManual {
+    public static void main(String[] args) {
+        String original = "The Quick BroWn FoX!";
+        String result = "";
+
+        for (int i = 0; i < original.length(); i++) {
+            char ch = original.charAt(i);
+
+            if (ch >= 'a' && ch <= 'z') {
+                ch = (char)(ch - 32);
+            }
+
+            result = result + ch;
+        }
+
+        System.out.println("Original String: " + original);
+        System.out.println("String in uppercase: " + result);
+    }
+}
+
+
+
+
+7. Write a Java program to reverse a string.
+Sample Output:
+The given string is: The quick brown fox jumps
+The string in reverse order is:
+spmuj xof nworb kciuq ehT
+
+public class ReverseStringManual {
+    public static void main(String[] args) {
+        String original = "The quick brown fox jumps";
+        String reversed = "";
+
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
+        }
+
+        System.out.println("The given string is: " + original);
+        System.out.println("The string in reverse order is:");
+        System.out.println(reversed);
+    }
+}
+
+
+
+
